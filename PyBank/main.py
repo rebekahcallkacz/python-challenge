@@ -11,15 +11,22 @@ import csv
 
 budget_data = os.path.join('Resources', 'budget_data.csv')
 
-#stores header as list and data from CSV file as dict; determines total entries in file
+#stores header data from CSV files as lists; determines total entries in file
 with open(budget_data, 'r') as csvfile:
-    budgetDict = {}
+    months = []
+    profitsLosses = []
     totalMonths = 0
     csvreader =csv.reader(csvfile, delimiter=',')
     header = next(csvreader)
     for row in csvreader:
-        budgetDict[row[0]] = int(row[1])
+        months.append(row[0])
+        profitsLosses.append(int(row[1]))
         totalMonths += 1
+print(months)
+print(profitsLosses)
+
+#calculates average change in profits/losses per month
+averageChanges = []
 
 
 
