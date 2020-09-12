@@ -1,22 +1,24 @@
 ##PyBank
 #This script analyzes profits/losses per month 
 #Input = CSV file with column 0 as month and column 1 as profits/losses
-#Output = total months, average change in profits/losses per month, greatest increase/decrease in terminal and txt file
+#Output = total months, average change in profits/losses per month, greatest increase/decrease 
+#Output to txt file and terminal
 
 #References
 #Ramos, L.P. (2020). "How to Iterate Through a Dictionary in Python". realpython.com
-#Geeksforgeeks. (2017). "Reading and Writing to text files in Python" geeksforgeeks.org
+#Geeksforgeeks. (2017). "Reading and Writing to text files in Python". geeksforgeeks.org
+#Geeksforgeeks. (2019). "Python return statement". geeksforgeeks.org
 
 import os
 import csv
 
 budget_data = os.path.join('Resources', 'budget_data.csv')
 
-#stores header and data from CSV files as lists; determines total entries in file
+#stores header and data from CSV files as lists; determines total entries in file and total profits/loss
 #input = file path
-#output = total months included, list of months and list of profits/losses
-def processCSVdata(budget_data):
-    with open(budget_data, 'r') as csvfile:
+#output = total months included, total profits/losses, list of months and list of profits/losses
+def processCSVdata(file_path):
+    with open(file_path, 'r') as csvfile:
         months = []
         profitsLosses = []
         totalMonths = 0
@@ -40,7 +42,6 @@ totalMonths, netTotal, months, profitsLosses = processCSVdata(budget_data)
 def calculateChanges(months, profitsLosses):
     changesPerMonth = []
     for value in profitsLosses[1:]:
-
         valueBefore = profitsLosses[(profitsLosses.index(value)-1)]
         change = value - valueBefore
         changesPerMonth.append(change)
@@ -70,7 +71,7 @@ monthmaxDecrease = months[changesPerMonth.index(maxDecrease)+1]
 
 #creates a properly formatted string of entire analysis
 analysisWriteUp = ('Financial Analysis \n---------------------------- \nTotal Months: ' 
-+ str(totalMonths) + '\nTotal: ' + str(netTotal) + '\nAverage Change: ' 
++ str(totalMonths) + '\nTotal: $' + str(netTotal) + '\nAverage Change: $' 
 + str(changeAverage) + '\nGreatest Increase in Profits: ' + monthmaxIncrease + ' ($' 
 + str(maxIncrease) + ')' + '\nGreatest Decrease in Profits: ' + monthmaxDecrease + ' ($' 
 + str(maxDecrease) + ')')
@@ -86,6 +87,3 @@ def writeTxt(analysis):
         txtfile.writelines(analysis)
 
 writeTxt(analysisWriteUp)
-
-#to do: figure out how to identify month that matches the max Increase/Decrease - add calculation and addd to string
-#to do: put analysisWriteUp in text file
