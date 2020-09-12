@@ -1,10 +1,11 @@
 ##PyBank
-# This script analyzes profits/losses per month 
-# Input = CSV file with column 0 as month and column 1 as profits/losses
-# Output = total months, average change in profits/losses per month, greatest increase/decrease in terminal and txt file
+#This script analyzes profits/losses per month 
+#Input = CSV file with column 0 as month and column 1 as profits/losses
+#Output = total months, average change in profits/losses per month, greatest increase/decrease in terminal and txt file
 
 #References
 #Ramos, L.P. (2020). "How to Iterate Through a Dictionary in Python". realpython.com
+#Geeksforgeeks. (2017). "Reading and Writing to text files in Python" geeksforgeeks.org
 
 import os
 import csv
@@ -59,6 +60,7 @@ def average(listNums):
     
 changeAverage = average(changesPerMonth)
 
+#determines max/min changes in profits/losses; finds associated month from CSV file
 maxIncrease = max(changesPerMonth)
 monthmaxIncrease = months[changesPerMonth.index(maxIncrease)+1]
 maxDecrease = min(changesPerMonth)
@@ -72,8 +74,18 @@ analysisWriteUp = ('Financial Analysis \n---------------------------- \nTotal Mo
 + str(changeAverage) + '\nGreatest Increase in Profits: ' + monthmaxIncrease + ' ($' 
 + str(maxIncrease) + ')' + '\nGreatest Decrease in Profits: ' + monthmaxDecrease + ' ($' 
 + str(maxDecrease) + ')')
-    
+
 print(analysisWriteUp)
+
+#write entire analysis to a txt file
+#input = string 
+#output = txt file named results
+def writeTxt(analysis):
+    outputPath = os.path.join('Analysis', 'results.txt')
+    with open(outputPath, 'w') as txtfile:
+        txtfile.writelines(analysis)
+
+writeTxt(analysisWriteUp)
 
 #to do: figure out how to identify month that matches the max Increase/Decrease - add calculation and addd to string
 #to do: put analysisWriteUp in text file
