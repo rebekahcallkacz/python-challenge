@@ -10,20 +10,15 @@
 import os
 import csv
 
-electionData = os.path.join('Resources', 'test_data.csv')
+electionData = os.path.join('Resources', 'election_data.csv')
 
-#Part 2: store/capture data - while iterating through CSV rows
-    #total # votes cast (keep list of voter ids to remove dupes)
-    #dict with keys as candidates and values as running totals of votes
-        #generate empty dict 
-        #check if candidate is in dict as a key
-        #if no, add candidate as key with value of a list containing 0
-        #if yes, add 1 to candidate value
-        #return total votes and dict which contains candidates and their total votes
-
-#stores header and data from CSV files as lists; determines total entries in file and total profits/loss
+#Code Questions: 
+#should I check for dupes in the voter IDs? 
+#what's going on with the rounding? 
+       
+#stores header and data from CSV files ; determines total entries in file and total votes per candidate
 #input = file path
-#output = total months included, total profits/losses, list of months and list of profits/losses
+#output = total number votes, dict with candidates as key and total votes per candidate as values
 def processCSVdata(file_path):
     with open(file_path, 'r') as csvfile:
         voterIDs = []
@@ -38,7 +33,18 @@ def processCSVdata(file_path):
             candidatesVotes[row[2]][0] += 1
     return totalVotes, candidatesVotes
 
-print(processCSVdata(electionData))
+totalVotes, candidatesVotes = processCSVdata(electionData)
+
+#calculates percentage votes won by each candidate
+#input = totalVotes = int, candidatesVotes = dict, key = candidate name, value = total number votes (type is list)
+#output = adds percentage votes won to the end of the list associated with the candidate
+def calculatePercentWon(totalVotes, candidatesVotes):
+    for key, value in candidatesVotes.items():
+        percentWon = candidatesVotes[key][0]/totalVotes*100
+        candidatesVotes[key].append(percentWon)
+    return candidatesVotes
+
+candidatesVotes = calculatePercentWon(totalVotes, candidatesVotes)
 
 
 #Part 3: analyze data
