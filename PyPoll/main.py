@@ -6,6 +6,7 @@
 #The Python Tutorial. Python 3.6.12 Documentation. "Data Structures: Dictionaries". docs.python.org
 #Geeksforgeeks. (2020). "Python | Get key with maximum value in Dictionary". geeksforgeeks.org
 #https://www.geeksforgeeks.org/python-get-key-with-maximum-value-in-dictionary/
+#https://www.geeksforgeeks.org/python-get-key-from-value-in-dictionary/
 
 import os
 import csv
@@ -13,7 +14,7 @@ import csv
 electionData = os.path.join('Resources', 'election_data.csv')
 
 #Code Questions: 
-#should I check for dupes in the voter IDs? 
+#should I check for dupes in the voter IDs? (remove voterIDs if I don't do this)
 #what's going on with the rounding? 
        
 #stores header and data from CSV files ; determines total entries in file and total votes per candidate
@@ -46,10 +47,39 @@ def calculatePercentWon(totalVotes, candidatesVotes):
 
 candidatesVotes = calculatePercentWon(totalVotes, candidatesVotes)
 
-print(candidatesVotes)
-#Part 3: analyze data
-    # % votes won by each candidate (append this to each candidate's list in the dict)
-    # winner based on popular vote (max value in dict at specific index of list? see above for potential ways to do this)
+
+#determines candidate with the most votes (compares total votes of each candidate)
+#input = dict with key of candidate and values of list with total votes and percentage of votes
+#output = winner of popular vote (string)
+def determineWinner(candidatesVotes):
+    listVotes = []
+    for key in candidatesVotes:
+        listVotes.append(candidatesVotes[key][0])
+    highestVotes = max(listVotes)
+    for key, value in candidatesVotes.items():
+        if value[0] == highestVotes:
+            return key
+            break
+
+candWinner = determineWinner(candidatesVotes)
+print(candWinner)
+
+#formats data as a string
+#input = dict (key=candidate names (string), values = [totalvotes(int), percentofvotes(float)]), candwinner(string)
+#output = string with results
+
+Election Results
+  -------------------------
+  Total Votes: 3521001
+  -------------------------
+  Khan: 63.000% (2218231)
+  Correy: 20.000% (704200)
+  Li: 14.000% (492940)
+  O'Tooley: 3.000% (105630)
+  -------------------------
+  Winner: Khan
+  -------------------------
+
 
 #Part 4: data output
     #compile fancy string with all info
