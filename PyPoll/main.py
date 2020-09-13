@@ -39,14 +39,14 @@ totalVotes, candidatesVotes = processCSVdata(electionData)
 #input = totalVotes = int, candidatesVotes = dict, key = candidate name, value = total number votes (type is list)
 #output = adds percentage votes won to the end of the list associated with the candidate
 def calculatePercentWon(totalVotes, candidatesVotes):
-    for key, value in candidatesVotes.items():
+    for key in candidatesVotes.keys():
         percentWon = candidatesVotes[key][0]/totalVotes*100
         candidatesVotes[key].append(percentWon)
     return candidatesVotes
 
 candidatesVotes = calculatePercentWon(totalVotes, candidatesVotes)
 
-
+print(candidatesVotes)
 #Part 3: analyze data
     # % votes won by each candidate (append this to each candidate's list in the dict)
     # winner based on popular vote (max value in dict at specific index of list? see above for potential ways to do this)
