@@ -65,7 +65,7 @@ candWinner = determineWinner(candidatesVotes)
 print(candWinner)
 
 #formats data as a string
-#input = dict (key=candidate names (string), values = [totalvotes(int), percentofvotes(float)]), candwinner(string)
+#input = dict (key=candidate names (string), values = [totalvotes(int), percentofvotes(float)]), candwinner(string), totalVotes(int)
 #output = string with results
 
 Election Results
@@ -80,6 +80,14 @@ Election Results
   Winner: Khan
   -------------------------
 
+for key, values in candidatesVotes.items():
+    
+
+analysisWriteUp = ('Election Results \n---------------------------- \nTotal Votes: ' 
++ str(totalVotes) + '\n----------------------------' + str(netTotal) + '\nAverage Change: $' 
++ str(changeAverage) + '\nGreatest Increase in Profits: ' + monthmaxIncrease + ' ($' 
++ str(maxIncrease) + ')' + '\nGreatest Decrease in Profits: ' + monthmaxDecrease + ' ($' 
++ str(maxDecrease) + ')')
 
 #Part 4: data output
     #compile fancy string with all info
