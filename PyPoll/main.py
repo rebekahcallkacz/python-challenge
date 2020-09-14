@@ -7,6 +7,7 @@
 #Geeksforgeeks. (2020). "Python | Get key with maximum value in Dictionary". geeksforgeeks.org
 #https://www.geeksforgeeks.org/python-get-key-with-maximum-value-in-dictionary/
 #https://www.geeksforgeeks.org/python-get-key-from-value-in-dictionary/
+#https://realpython.com/python-formatted-output/ 
 
 import os
 import csv
@@ -62,32 +63,21 @@ def determineWinner(candidatesVotes):
             break
 
 candWinner = determineWinner(candidatesVotes)
-print(candWinner)
 
 #formats data as a string
-#input = dict (key=candidate names (string), values = [totalvotes(int), percentofvotes(float)]), candwinner(string), totalVotes(int)
+#input = dict (key=candidate names , values = [totalvotes, percentofvotes(float)]), candwinner, totalVotes
 #output = string with results
+def createReportString(dataDict, total, winner):
+    voteReport = ""
+    for key, value in dataDict.items():
+        voteReport += f"{key}: {value[1]}% ({value[0]})\n"
+    analysisWriteUp = (f'Election Results \n---------------------------- \nTotal Votes: ' 
+    f'{total} \n----------------------------\n{voteReport}'
+    f'---------------------------- \nWinner: {winner}\n----------------------------')
+    return analysisWriteUp
 
-Election Results
-  -------------------------
-  Total Votes: 3521001
-  -------------------------
-  Khan: 63.000% (2218231)
-  Correy: 20.000% (704200)
-  Li: 14.000% (492940)
-  O'Tooley: 3.000% (105630)
-  -------------------------
-  Winner: Khan
-  -------------------------
-
-for key, values in candidatesVotes.items():
-    
-
-analysisWriteUp = ('Election Results \n---------------------------- \nTotal Votes: ' 
-+ str(totalVotes) + '\n----------------------------' + str(netTotal) + '\nAverage Change: $' 
-+ str(changeAverage) + '\nGreatest Increase in Profits: ' + monthmaxIncrease + ' ($' 
-+ str(maxIncrease) + ')' + '\nGreatest Decrease in Profits: ' + monthmaxDecrease + ' ($' 
-+ str(maxDecrease) + ')')
+reportString = createReportString(candidatesVotes, totalVotes, candWinner)
+print(reportString)
 
 #Part 4: data output
     #compile fancy string with all info
