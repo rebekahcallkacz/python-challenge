@@ -4,6 +4,10 @@
 #Output = total months, average change in profits/losses per month, greatest increase/decrease 
 #Output to txt file and terminal
 
+#TO DO: create nice README - https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet 
+#do final review of code and edit comments and remove tests
+#add for loop to PyPoll that checks for duplicate voters
+
 #References
 #Ramos, L.P. (2020). "How to Iterate Through a Dictionary in Python". realpython.com
 #Geeksforgeeks. (2017). "Reading and Writing to text files in Python". geeksforgeeks.org
