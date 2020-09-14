@@ -13,11 +13,7 @@ import os
 import csv
 
 electionData = os.path.join('Resources', 'election_data.csv')
-
-#Code Questions: 
-#should I check for dupes in the voter IDs? (remove voterIDs if I don't do this)
-#what's going on with the rounding? 
-       
+    
 #stores header and data from CSV files ; determines total entries in file and total votes per candidate
 #input = file path
 #output = total number votes, dict with candidates as key and total votes per candidate as values
