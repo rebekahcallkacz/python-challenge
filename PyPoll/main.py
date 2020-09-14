@@ -17,6 +17,7 @@ electionData = os.path.join('Resources', 'election_data.csv')
 #stores header and data from CSV files ; determines total entries in file and total votes per candidate
 #input = file path
 #output = total number votes, dict with candidates as key and total votes per candidate as values
+#ADD DUPLICATES HERE
 def processCSVdata(file_path):
     with open(file_path, 'r') as csvfile:
         voterIDs = []
@@ -56,7 +57,6 @@ def determineWinner(candidatesVotes):
     for key, value in candidatesVotes.items():
         if value[0] == highestVotes:
             return key
-            break
 
 candWinner = determineWinner(candidatesVotes)
 
