@@ -77,8 +77,15 @@ def createReportString(dataDict, total, winner):
     return analysisWriteUp
 
 reportString = createReportString(candidatesVotes, totalVotes, candWinner)
+
 print(reportString)
 
-#Part 4: data output
-    #compile fancy string with all info
-    #print fancy string and write to a txt file
+#write entire analysis to a txt file
+#input = string 
+#output = txt file named results
+def writeTxt(analysis):
+    outputPath = os.path.join('Analysis', 'results.txt')
+    with open(outputPath, 'w') as txtfile:
+        txtfile.writelines(analysis)
+
+writeTxt(reportString)

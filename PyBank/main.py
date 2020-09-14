@@ -69,11 +69,10 @@ monthmaxDecrease = months[changesPerMonth.index(maxDecrease)+1]
 
 
 #creates a properly formatted string of entire analysis
-analysisWriteUp = ('Financial Analysis \n---------------------------- \nTotal Months: ' 
-+ str(totalMonths) + '\nTotal: $' + str(netTotal) + '\nAverage Change: $' 
-+ str(changeAverage) + '\nGreatest Increase in Profits: ' + monthmaxIncrease + ' ($' 
-+ str(maxIncrease) + ')' + '\nGreatest Decrease in Profits: ' + monthmaxDecrease + ' ($' 
-+ str(maxDecrease) + ')')
+analysisWriteUp = (f'Financial Analysis \n---------------------------- \nTotal Months: ' 
+f'{totalMonths} \nTotal: ${netTotal} \nAverage Change: ${changeAverage}'
+f'\nGreatest Increase in Profits: {monthmaxIncrease} (${maxIncrease})' 
+f'\nGreatest Decrease in Profits: {monthmaxDecrease} (${maxDecrease})')
 
 print(analysisWriteUp)
 
