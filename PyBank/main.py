@@ -21,15 +21,14 @@ def processCSVdata(file_path):
     with open(file_path, 'r') as csvfile:
         months = []
         profitsLosses = []
-        totalMonths = 0
         netTotal = 0
         csvreader =csv.reader(csvfile, delimiter=',')
         header = next(csvreader)
         for row in csvreader:
             months.append(row[0])
             profitsLosses.append(int(row[1]))
-            totalMonths += 1
             netTotal += int(row[1])
+        totalMonths = len(months)
     return totalMonths, netTotal, months, profitsLosses
 
 
