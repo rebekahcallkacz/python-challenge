@@ -70,7 +70,7 @@ candWinner = determineWinner(candidatesVotes)
 def createReportString(dataDict, total, winner):
     voteReport = ""
     for key, value in dataDict.items():
-        voteReport += f"{key}: {value[1]}% ({value[0]})\n"
+        voteReport += f"{key}: {value[1]:.3f}% ({value[0]})\n"
     analysisWriteUp = (f'Election Results \n---------------------------- \nTotal Votes: ' 
     f'{total} \n----------------------------\n{voteReport}'
     f'---------------------------- \nWinner: {winner}\n----------------------------')
