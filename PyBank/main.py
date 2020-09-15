@@ -5,8 +5,6 @@
 #Output to txt file and terminal
 
 #TO DO: create nice README - https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet 
-#do final review of code and edit comments and remove tests
-#add for loop to PyPoll that checks for duplicate voters
 
 #References
 #Ramos, L.P. (2020). "How to Iterate Through a Dictionary in Python". realpython.com
@@ -20,7 +18,7 @@ budget_data = os.path.join('Resources', 'budget_data.csv')
 
 #stores header and data from CSV files as lists; determines total entries in file and total profits/loss
 #input = file path
-#output = total months included, total profits/losses, list of months and list of profits/losses
+#output = total months, total profits/losses, list of months and list of profits/losses
 def processCSVdata(file_path):
     with open(file_path, 'r') as csvfile:
         months = []
@@ -36,8 +34,6 @@ def processCSVdata(file_path):
     return totalMonths, netTotal, months, profitsLosses
 
 
-totalMonths, netTotal, months, profitsLosses = processCSVdata(budget_data)
-
 #calculates change in profits/losses per month 
 #input = list of months, list of profits/losses
 #output = new list of changes between months
@@ -50,11 +46,9 @@ def calculateChanges(months, profitsLosses):
         changesPerMonth.append(change)
     return changesPerMonth
 
-changesPerMonth = calculateChanges(months, profitsLosses)
-
 #determines average 
 #input = list of numerical values
-#output = average
+#output = average (float) rounded to 2 decimal points
 def average(listNums):
     total = 0
     for num in listNums:
@@ -62,15 +56,24 @@ def average(listNums):
     average = round(total/len(listNums), 2)
     return average
     
+#write string to a txt file
+#input = string 
+#output = txt file named results in folder 'Analysis
+def writeTxt(analysis):
+    outputPath = os.path.join('Analysis', 'results.txt')
+    with open(outputPath, 'w') as txtfile:
+        txtfile.writelines(analysis)
+
+totalMonths, netTotal, months, profitsLosses = processCSVdata(budget_data)
+changesPerMonth = calculateChanges(totalMonths, profitsLosses)
 changeAverage = average(changesPerMonth)
+
 
 #determines max/min changes in profits/losses; finds associated month from CSV file
 maxIncrease = max(changesPerMonth)
 monthmaxIncrease = months[changesPerMonth.index(maxIncrease)+1]
 maxDecrease = min(changesPerMonth)
 monthmaxDecrease = months[changesPerMonth.index(maxDecrease)+1]
-
-
 
 #creates a properly formatted string of entire analysis
 analysisWriteUp = (f'Financial Analysis \n---------------------------- \nTotal Months: ' 
@@ -79,13 +82,4 @@ f'\nGreatest Increase in Profits: {monthmaxIncrease} (${maxIncrease})'
 f'\nGreatest Decrease in Profits: {monthmaxDecrease} (${maxDecrease})')
 
 print(analysisWriteUp)
-
-#write entire analysis to a txt file
-#input = string 
-#output = txt file named results
-def writeTxt(analysis):
-    outputPath = os.path.join('Analysis', 'results.txt')
-    with open(outputPath, 'w') as txtfile:
-        txtfile.writelines(analysis)
-
 writeTxt(analysisWriteUp)
