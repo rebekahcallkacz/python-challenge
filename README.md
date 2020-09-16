@@ -9,24 +9,24 @@ The purpose of this program is to analyze large datasets that are stored in Exce
 ### PyBank
 This script analyzes profits and losses per month.
 
-![alt text](GITHUB LINK HERE "PyBank Dataset")
+![alt text](https://github.com/rebekahcallkacz/python-challenge/blob/master/Images/PyBank%20dataset.jpg "PyBank Dataset")
 
-As can be seen from the results below, the greatest decrease in the month-to-month returns occurred in MONTH HERE.  The greatest increase in the month-to-month returs occurred in MONTH HERE.
+As can be seen from the results below, the greatest decrease in the month-to-month returns occurred in September of 2013.  The greatest increase in the month-to-month returns occurred in February of 2012.
 
 ![alt text](https://github.com/rebekahcallkacz/python-challenge/blob/master/Images/PyBank%20Results.jpg "PyBank Terminal Output")
 
-![alt text](GITHUB LINK HERE "PyBank txt File Output")
+![alt text](https://github.com/rebekahcallkacz/python-challenge/blob/master/Images/PyBank%20txt%20Results.jpg "PyBank txt File Output")
 
 ### PyPoll
 This script analyzes election data to determine the winner of the race.
 
-![alt text](GITHUB LINK HERE "PyPoll Dataset")
+![alt text](https://github.com/rebekahcallkacz/python-challenge/blob/master/Images/PyPoll%20dataset.jpg "PyPoll Dataset")
 
 As can be seen below, the winner of the election was Khan.
 
 ![alt text](GITHUB LINK HERE "PyPoll Terminal Output")
 
-![alt text](GITHUB LINK HERE "PyPoll txt File Output")
+![alt text](https://github.com/rebekahcallkacz/python-challenge/blob/master/Images/PyPoll%20txt%20Results.jpg "PyPoll txt File Output")
 
 Instructions
 ----------------
