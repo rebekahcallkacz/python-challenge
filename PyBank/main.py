@@ -2,9 +2,7 @@
 #This script analyzes profits/losses per month 
 #Input = CSV file with column 0 as month and column 1 as profits/losses
 #Output = total months, average change in profits/losses per month, greatest increase/decrease 
-#Output to txt file and terminal
-
-#TO DO: create nice README - https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet 
+#Output is to txt file and terminal
 
 #References
 #Ramos, L.P. (2020). "How to Iterate Through a Dictionary in Python". realpython.com

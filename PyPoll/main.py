@@ -17,7 +17,6 @@ electionData = os.path.join('Resources', 'election_data.csv')
 #stores header and data from CSV files ; determines total entries in file and total votes per candidate
 #input = file path
 #output = total number votes, dict with candidates as key and total votes per candidate as values
-#ADD DUPLICATES HERE
 def processCSVdata(file_path):
     with open(file_path, 'r') as csvfile:
         voterIDs = []
@@ -26,13 +25,13 @@ def processCSVdata(file_path):
         csvreader =csv.reader(csvfile, delimiter=',')
         header = next(csvreader)
         for row in csvreader:
-            totalVotes += 1
-            if row[2] not in candidatesVotes:
-                candidatesVotes[row[2]] = [0]
-            candidatesVotes[row[2]][0] += 1
+            if row[0] not in voterIDs:
+                totalVotes += 1
+                if row[2] not in candidatesVotes:
+                    candidatesVotes[row[2]] = [0]
+                candidatesVotes[row[2]][0] += 1
+                voterIDs.append(row[0])
     return totalVotes, candidatesVotes
-
-totalVotes, candidatesVotes = processCSVdata(electionData)
 
 #calculates percentage votes won by each candidate
 #input = totalVotes = int, candidatesVotes = dict, key = candidate name, value = total number votes (type is list)
@@ -42,9 +41,6 @@ def calculatePercentWon(totalVotes, candidatesVotes):
         percentWon = candidatesVotes[key][0]/totalVotes*100
         candidatesVotes[key].append(percentWon)
     return candidatesVotes
-
-candidatesVotes = calculatePercentWon(totalVotes, candidatesVotes)
-
 
 #determines candidate with the most votes (compares total votes of each candidate)
 #input = dict with key of candidate and values of list with total votes and percentage of votes
@@ -58,8 +54,6 @@ def determineWinner(candidatesVotes):
         if value[0] == highestVotes:
             return key
 
-candWinner = determineWinner(candidatesVotes)
-
 #formats data as a string
 #input = dict (key=candidate names , values = [totalvotes, percentofvotes(float)]), candwinner, totalVotes
 #output = string with results
@@ -72,10 +66,6 @@ def createReportString(dataDict, total, winner):
     f'---------------------------- \nWinner: {winner}\n----------------------------')
     return analysisWriteUp
 
-reportString = createReportString(candidatesVotes, totalVotes, candWinner)
-
-print(reportString)
-
 #write entire analysis to a txt file
 #input = string 
 #output = txt file named results
@@ -84,4 +74,10 @@ def writeTxt(analysis):
     with open(outputPath, 'w') as txtfile:
         txtfile.writelines(analysis)
 
+totalVotes, candidatesVotes = processCSVdata(electionData)
+candidatesVotes = calculatePercentWon(totalVotes, candidatesVotes)
+candWinner = determineWinner(candidatesVotes)
+reportString = createReportString(candidatesVotes, totalVotes, candWinner)
+
+print(reportString)
 writeTxt(reportString)
