@@ -28,7 +28,8 @@ def processCSVdata(file_path):
             months.append(row[0])
             profitsLosses.append(int(row[1]))
             netTotal += int(row[1])
-        totalMonths = len(months)
+    totalMonths = len(months)
+    netTotal = sum(profitsLosses)
     return totalMonths, netTotal, months, profitsLosses
 
 
