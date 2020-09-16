@@ -51,7 +51,7 @@ def average(listNums):
     total = 0
     for num in listNums:
         total += num
-    average = round(total/len(listNums), 2)
+    average = total/len(listNums)
     return average
     
 #write string to a txt file
@@ -75,7 +75,7 @@ monthmaxDecrease = months[changesPerMonth.index(maxDecrease)+1]
 
 #creates a properly formatted string of entire analysis
 analysisWriteUp = (f'Financial Analysis \n---------------------------- \nTotal Months: ' 
-f'{totalMonths} \nTotal: ${netTotal} \nAverage Change: ${changeAverage}'
+f'{totalMonths} \nTotal: ${netTotal} \nAverage Change: ${changeAverage:.2f}'
 f'\nGreatest Increase in Profits: {monthmaxIncrease} (${maxIncrease})' 
 f'\nGreatest Decrease in Profits: {monthmaxDecrease} (${maxDecrease})')
 
