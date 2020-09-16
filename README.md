@@ -24,7 +24,7 @@ This script analyzes election data to determine the winner of the race.
 
 As can be seen below, the winner of the election was Khan.
 
-![alt text](GITHUB LINK HERE "PyPoll Terminal Output")
+![alt text](https://github.com/rebekahcallkacz/python-challenge/blob/master/Images/PyPoll%20Results.jpg "PyPoll Terminal Output")
 
 ![alt text](https://github.com/rebekahcallkacz/python-challenge/blob/master/Images/PyPoll%20txt%20Results.jpg "PyPoll txt File Output")
 
