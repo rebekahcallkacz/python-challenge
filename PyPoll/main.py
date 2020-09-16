@@ -22,15 +22,13 @@ def processCSVdata(file_path):
         voterIDs = []
         totalVotes = 0
         candidatesVotes = {}
-        csvreader =csv.reader(csvfile, delimiter=',')
+        csvreader = csv.reader(csvfile, delimiter=',')
         header = next(csvreader)
         for row in csvreader:
-            if row[0] not in voterIDs:
-                totalVotes += 1
-                if row[2] not in candidatesVotes:
-                    candidatesVotes[row[2]] = [0]
-                candidatesVotes[row[2]][0] += 1
-                voterIDs.append(row[0])
+            totalVotes += 1
+            if row[2] not in candidatesVotes:
+                candidatesVotes[row[2]] = [0]
+            candidatesVotes[row[2]][0] += 1
     return totalVotes, candidatesVotes
 
 #calculates percentage votes won by each candidate
