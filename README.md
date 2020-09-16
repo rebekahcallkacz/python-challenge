@@ -4,7 +4,7 @@ Version: 1.0.0
 
 Description
 ---------------
-The purpose of this program is to analyze large datasets that are stored in Excel files in a descriptive manner.
+The purpose of this program is to analyze large datasets that are stored in Excel files.
 
 ### PyBank
 This script analyzes profits and losses per month.
@@ -13,7 +13,7 @@ This script analyzes profits and losses per month.
 
 As can be seen from the results below, the greatest decrease in the month-to-month returns occurred in MONTH HERE.  The greatest increase in the month-to-month returs occurred in MONTH HERE.
 
-![alt text](Images/PyBank Results.jpg "PyBank Terminal Output")
+![alt text](https://github.com/rebekahcallkacz/python-challenge/blob/master/Images/PyBank%20Results.jpg "PyBank Terminal Output")
 
 ![alt text](GITHUB LINK HERE "PyBank txt File Output")
 
