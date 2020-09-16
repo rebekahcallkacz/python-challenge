@@ -30,7 +30,7 @@ def processCSVdata(file_path):
                 if row[2] not in candidatesVotes:
                     candidatesVotes[row[2]] = [0]
                 candidatesVotes[row[2]][0] += 1
-                    voterIDs.append(row[0])
+                voterIDs.append(row[0])
     return totalVotes, candidatesVotes
 
 #calculates percentage votes won by each candidate
