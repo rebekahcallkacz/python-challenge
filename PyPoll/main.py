@@ -19,7 +19,6 @@ electionData = os.path.join('Resources', 'election_data.csv')
 #output = total number votes, dict with candidates as key and total votes per candidate as values
 def processCSVdata(file_path):
     with open(file_path, 'r') as csvfile:
-        voterIDs = []
         totalVotes = 0
         candidatesVotes = {}
         csvreader = csv.reader(csvfile, delimiter=',')
