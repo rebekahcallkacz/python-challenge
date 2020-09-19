@@ -30,9 +30,9 @@ As can be seen below, the winner of the election was Khan.
 
 Instructions
 ----------------
-PyBank requires a CSV file with the month/year in the first column and the profits/losses in the second column. This CSV file should be stored in the Resources folder. The dataset analyzed in this README is included in this folder.
+PyBank requires a CSV file with the month/year in the first column and the profits/losses in the second column. This CSV file should be stored in the Resources folder. The dataset analyzed in this README is included in the Resources folder.
 
-PyPoll requires a CSV file with a record of voterIDs and who they voted for. The candidate's name should be in the third column. This CSV file should be stored in the Resources folder. The dataset analyzed in this README is included in this folder.
+PyPoll requires a CSV file with a record of voterIDs and who they voted for. The candidate's name should be in the third column. This CSV file should be stored in the Resources folder. The dataset analyzed in this README is included in the Resources folder.
 
 Contributors
 ----------------

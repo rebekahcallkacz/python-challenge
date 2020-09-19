@@ -31,7 +31,7 @@ def processCSVdata(file_path):
     return totalVotes, candidatesVotes
 
 #calculates percentage votes won by each candidate
-#input = totalVotes = int, candidatesVotes = dict, key = candidate name, value = total number votes (type is list)
+#input = totalVotes (int), candidatesVotes (dict), key = candidate name, value = total number votes (list)
 #output = adds percentage votes won to the end of the list associated with the candidate
 def calculatePercentWon(totalVotes, candidatesVotes):
     for key in candidatesVotes.keys():
